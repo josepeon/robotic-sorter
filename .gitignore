@@ -1,24 +1,37 @@
 # Python
 __pycache__/
 *.pyc
-venv/
+*.pyo
+*.pyd
 *.egg-info/
+venv/
+.env/
+.envrc
 
-# Unity
-unity_env/Library/
-unity_env/Temp/
-unity_env/Build/
-unity_env/Logs/
-unity_env/obj/
-unity_env/.vs/
-unity_env/.idea/
+# Unity - ignore build system & auto-generated files
+unity_env/**/Library/
+unity_env/**/Temp/
+unity_env/**/Obj/
+unity_env/**/Build/
+unity_env/**/Builds/
+unity_env/**/Logs/
+unity_env/**/.vs/
+unity_env/**/.idea/
+unity_env/**/*.csproj
+unity_env/**/*.unityproj
+unity_env/**/*.sln
+unity_env/**/*.user
 
-# Training artifacts
+# ML-Agents Training Artifacts
 results/
-models/*.onnx
+models/
+*.onnx
 *.log
 *.mp4
 *.png
+*.tfrecord
 
-# OS
+# OS / Editor files
 .DS_Store
+Thumbs.db
+.vscode/
