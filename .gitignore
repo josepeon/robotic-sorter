@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+*.egg-info/
+
+# Unity
+unity_env/Library/
+unity_env/Temp/
+unity_env/Build/
+unity_env/Logs/
+unity_env/obj/
+unity_env/.vs/
+unity_env/.idea/
+
+# Training artifacts
+results/
+models/*.onnx
+*.log
+*.mp4
+*.png
+
+# OS
+.DS_Store
