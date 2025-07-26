@@ -1,58 +1,32 @@
-# Robotic Sorter
+# Robotic Sorter – Unity ML-Agents Project
 
-**Reinforcement Learning + Vision Simulation Project**  
-A robotic agent is trained to visually identify and sort 3D objects using Unity ML-Agents and PPO.
+This project trains a simple robotic agent to move toward a target using Unity's ML-Agents toolkit.
 
----
+## Overview
 
-## Project Structure
+- **Environment**: Unity 3D simulation with Rigidbody-based agent physics
+- **Agent**: `SorterAgent.cs` — collects relative position + velocity, outputs continuous movement
+- **Training Framework**: ML-Agents (v0.30.0), PyTorch backend
+- **Training Output**: Trained `.onnx` model for inference inside Unity
+- **Behavior**: Agent learns to reach a target while avoiding falling or drifting inefficiently
 
-robotic_sorter/
-├── ml-agents/         # Python training launcher and utilities
-├── config/            # ML-Agents training config (robotic_sorter.yaml)
-├── models/            # Saved model checkpoints (.onnx)
-├── vision/            # OpenCV tools (optional)
-├── videos/            # Training and result captures
-├── docs/              # Architecture diagrams, notes
-├── unity_env/         # Unity simulation project (built on ASUS)
-├── results/           # Training logs and summaries
-├── README.md
-└── train.py
+## Files
 
----
+- `config/robotic_sorter.yaml`: Training config
+- `Assets/Scripts/SorterAgent.cs`: Core agent logic
+- `unity_env/robotic_sorter_sim/`: Complete Unity environment with scene, materials, prefabs
+- `models/Sorter_run_03/`: Output folder with trained ONNX model
 
-## Training Pipeline
+## Usage
 
-- Uses `mlagents-learn` with PPO
-- Controlled via `train.py` (auto-generates run IDs and logs)
-- Training config stored in `config/robotic_sorter.yaml`
-- Results saved under `results/`
+1. Open Unity project from `unity_env/robotic_sorter_sim`
+2. Load the `RoboticSorter` scene
+3. Drag trained `.onnx` model into the `Behavior Parameters > Model` field
+4. Hit **Play** to observe agent inference
 
----
+To retrain:
+```bash
+mlagents-learn config/robotic_sorter.yaml --run-id=Sorter_run_04 --force
 
-## Python Environment
-
-- Python 3.8 (via Conda)
-- Torch 1.13.1 (Apple Silicon compatible)
-- ML-Agents 0.28.0 (manual dependency control)
-- NumPy 1.23.5 (for ML-Agent compatibility)
-- Protobuf 3.20.3, TensorBoard, OpenCV, etc.
-
-> See `requirements.txt` or `conda list` export for exact versions.
-
----
-
-## Unity Setup
-
-Unity is used only for simulation and runs on a separate machine (ASUS).  
-Version: **Unity Editor 2022.3.x LTS** with ML-Agents Unity package.
-
----
-
-## TODO
-
-- [ ] Build sorting agent scene in Unity
-- [ ] Define reward function logic
-- [ ] Connect Unity ↔ Mac via ML-Agents
-- [ ] Train and visualize policy
-- [ ] Export trained model for inference
+Author
+Developed by Jose Peon — josepeon.com
