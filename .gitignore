@@ -35,3 +35,5 @@ models/
 .DS_Store
 Thumbs.db
 .vscode/
+.vs/
+
