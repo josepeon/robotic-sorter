@@ -10,6 +10,8 @@ This project trains a simple robotic agent to move toward a target using Unity's
 - **Training Output**: Trained `.onnx` model for inference inside Unity
 - **Behavior**: Agent learns to reach a target while avoiding falling or drifting inefficiently
 
+![Robotic Sorter Demo](assets/robotic-sorter-preview.jpg)
+
 ## Files
 
 - `config/robotic_sorter.yaml`: Training config
